@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16323A">
+  <title>תנועת הרכב | יחידת לימוד – מגמת אוטוטק</title>
+  <meta name="description" content="יחידת לימוד אינטראקטיבית בנושא תנועת הרכב: כוחות על רכב במנוחה, חלוקת עומסים על הסרנים וכוחות ההתנגדות לתנועה.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-in">
+      <a class="brand" id="brand" role="button" tabindex="0">
+        <span id="logo"></span>
+        <span><b>תנועת הרכב</b><small>יחידת לימוד · מגמת תחבורה מתקדמת – אוטוטק · י״ב</small></span>
+      </a>
+      <nav class="tabs" aria-label="ניווט ראשי">
+        <button class="tab" data-tab="learn"><span data-icon="book"></span>לימוד תיאורטי</button>
+        <button class="tab" data-tab="sim"><span data-icon="sim"></span>סימולטור</button>
+        <button class="tab" data-tab="exam"><span data-icon="exam"></span>מבחן מסכם</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="view" id="view-learn"></section>
+    <section class="view" id="view-sim"></section>
+    <section class="view" id="view-exam"></section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="ניווט">
+    <button data-tab="learn"><span data-icon="book"></span>לימוד</button>
+    <button data-tab="sim"><span data-icon="sim"></span>סימולטור</button>
+    <button data-tab="exam"><span data-icon="exam"></span>מבחן</button>
+  </nav>
+
+  <footer>יחידת לימוד: תנועת הרכב · מגמת תחבורה מתקדמת – אוטוטק</footer>
+
+  <script src="assets/drawing.js"></script>
+  <script src="assets/content.js"></script>
+  <script>
+    document.getElementById('logo').innerHTML = logoSVG();
+    document.querySelectorAll('[data-icon]').forEach(function (e) { e.outerHTML = ICONS[e.dataset.icon]; });
+  </script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
