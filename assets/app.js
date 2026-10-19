@@ -137,7 +137,10 @@
       case 'table': return `<div class="block table-wrap"><table class="data-table"><thead><tr>${b.head.map(h => `<th>${sub(h)}</th>`).join('')}</tr></thead>
         <tbody>${b.rows.map(r => `<tr>${r.map((c, i) => `<td class="${i ? 'num' : ''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table>
         ${b.cap ? `<div style="font-size:13.5px;color:var(--muted);margin-top:6px">${b.cap}</div>` : ''}</div>`;
-      case 'video': return `<div class="media block"><div class="media-head">${ICONS.film}${b.title}</div>
+      case 'video': if (b.yt) return `<div class="media block"><div class="media-head">${ICONS.film}${b.title}</div>
+        <div class="video-box"><iframe src="https://www.youtube-nocookie.com/embed/${b.yt}?rel=0" title="${b.title}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+        <a class="yt-link" target="_blank" rel="noopener" href="https://youtu.be/${b.yt}">${ICONS.play} הסרטון לא נטען? צפו בו ישירות ביוטיוב</a></div>`;
+        return `<div class="media block"><div class="media-head">${ICONS.film}${b.title}</div>
         <div class="video-box"><video controls preload="metadata" playsinline src="${encodeURI(b.src)}"></video></div>
         <div class="video-missing" style="display:none;font-size:14px;color:var(--bad)">הסרטון לא נמצא. ודאו שהקובץ <span class="num">${b.src}</span> נמצא באותה תיקייה כמו index.html.</div></div>`;
       case 'anim': {
